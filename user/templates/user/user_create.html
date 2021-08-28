@@ -1,0 +1,23 @@
+{% extends 'user/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="card mx-auto w-50">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {{ profile_form|crispy }}
+                <div class="d-grid">
+                    
+                        {% if update %}
+                        <button type="submit" class="btn btn-warning mt-3">update </button>
+                        {% else %} 
+                        <button type="submit" class="btn btn-primary mt-3">create </button>
+                        {% endif %}
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
